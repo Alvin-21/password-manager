@@ -75,7 +75,7 @@ class Credentials:
         Credentials.credential_list.remove(self)
 
     @classmethod
-    def password(cls, len=8, chars=string.letters+string.digits):
+    def password(cls, len=8, chars=string.ascii_letters+string.digits):
         """
         Auto-generates a password for the user.
         """
