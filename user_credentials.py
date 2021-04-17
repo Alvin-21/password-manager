@@ -1,3 +1,5 @@
+from random import choice
+
 class User:
     """
     Class that generates new instances of users.
@@ -36,3 +38,7 @@ class Credentials:
         """
 
         Credentials.credential_list.append(self)
+
+    @classmethod
+    def password(cls, len=8, chars=string.letters+string.digits):
+        return ''.join([choice(chars) for i in range(len)])
