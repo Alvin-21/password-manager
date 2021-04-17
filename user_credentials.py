@@ -54,3 +54,13 @@ class Credentials:
         """
 
         return cls.credential_list
+
+    @classmethod
+    def display_app_credential(cls, app):
+        """
+        Returns the specified app credential.
+        """
+
+        for credential in cls.credential_list:
+            if credential.app == app:
+                return credential
