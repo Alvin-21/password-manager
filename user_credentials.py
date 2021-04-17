@@ -35,6 +35,18 @@ class User:
 
         return False
 
+    @classmethod
+    def verify_user(cls, username, password):
+        """
+        Verifies if the user's details match.
+        """
+
+        for user in cls.user_list:
+            if (user.username == username and user.password == password):
+                return True
+
+        return False
+
 class Credentials:
     """
     Class that generates new credential instances.
