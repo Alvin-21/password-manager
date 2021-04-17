@@ -41,4 +41,16 @@ class Credentials:
 
     @classmethod
     def password(cls, len=8, chars=string.letters+string.digits):
+        """
+        Auto-generates a password for the user.
+        """
+
         return ''.join([choice(chars) for i in range(len)])
+
+    @classmethod
+    def display_credentials(cls):
+        """
+        Reuturns the credential list.
+        """
+
+        return cls.credential_list
