@@ -16,3 +16,10 @@ class TestContact(unittest.TestCase):
         """
         User.user_list = []
         Credentials.credential_list = []
+
+    def user_set_up(self):
+        """
+        Set up method to run before each test case.
+        """
+
+        self.new_user = User("John", "Doe", "jdoe", "jaribu1")
