@@ -17,3 +17,15 @@ class User:
         """
 
         User.user_list.append(self)
+
+class Credentials:
+    """
+    Class that generates new credential instances.
+    """
+
+    credential_list = []
+
+    def __init__(self, app, username, password):
+        self.app = app
+        self.username =username
+        self.password = password
