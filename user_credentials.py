@@ -85,7 +85,7 @@ class Credentials:
     @classmethod
     def display_credentials(cls):
         """
-        Reuturns the credential list.
+        Returns the credential list.
         """
 
         return cls.credential_list
