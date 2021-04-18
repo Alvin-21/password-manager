@@ -92,5 +92,16 @@ class TestUser(unittest.TestCase):
         self.new_credential.save_credentials()
         self.assertEqual(len(Credentials.credential_list), 1)
 
+    def test_delete_credential(self):
+        """
+        Test if we can remove a credential account from our credential list.
+        """
+
+        self.new_credential.save_credentials()
+        test_credential = Credentials("Snapchat", "test43", "wordpass")
+        test_credential.save_credentials()
+        test_credential.delete_credential()
+        self.assertEqual(len(Credentials.credential_list), 1)
+        
 if __name__ == '__main__':
     unittest.main()
