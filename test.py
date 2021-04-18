@@ -23,10 +23,11 @@ class TestUser(unittest.TestCase):
         """
 
         self.new_user = User("John", "Doe", "jdoe", "jaribu1")
+        self.new_credential = Credentials("Instagram", "doej", "trial2")
 
-    def test_init(self):
+    def test_user_init(self):
         """
-        Test if the object is initialized properly.
+        Test if user object is initialised properly.
         """
 
         self.assertEqual(self.new_user.fname, "John")
@@ -73,6 +74,16 @@ class TestUser(unittest.TestCase):
         test_user.save_user()
         user_verification = User.verify_user("tuser", "testing20")
         self.assertTrue(user_verification)
+
+    def test_credential_init(self):
+        """
+        Test if credential object is initialised properly.
+        """
+
+        self.assertEqual(self.new_credential.app, "Instagram")
+        self.assertEqual(self.new_credential.username, "doej")
+        self.assertEqual(self.new_credential.password, "trial2")
+
 
 if __name__ == '__main__':
     unittest.main()
