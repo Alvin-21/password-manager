@@ -18,7 +18,7 @@ def create_credentials(app, username, password):
 def main():
     print("Hello, welcome to Password Manager")
     while True:
-        print("Please use these short codes to execute your desired task: ca - create new account, li - login to account, ex - exit program")
+        print("\nPlease use these short codes to execute your desired task: ca - create new account, li - login to account, ex - exit program")
         
         short_code = input().lower().strip()
 
@@ -28,7 +28,7 @@ def main():
             username = input("Enter your preferred username: ").strip()
 
             if User.user_exist(username):
-                print("That username has already been taken. Please enter a different username.")
+                print("\nThat username has already been taken. Please enter a different username.")
                 username = input("Enter your preferred username: ").strip()
                 
             password = input("Enter your password: ")
@@ -67,7 +67,7 @@ def main():
                             elif option == "ex":
                                 break
                             else:
-                                print("Invalid input. Check options and try again.")
+                                print("\nInvalid input. Check options and try again.")
                     
                         new_credential = create_credentials(app, credential_username, credential_password)
                         new_credential.save_credentials()
@@ -75,7 +75,7 @@ def main():
                         print(f"\nNewly created credential details:\nApp Name: {app}\nUsername: {credential_username}\nPassword: {credential_password}")
 
                     elif code == "delc":
-                        delete_app = input("Enter the app name of the credential you wish to delete: ")
+                        delete_app = input("\nEnter the app name of the credential you wish to delete: ")
                         Credentials.delete_credential(delete_app)
                         print(f"{delete_app} Credentials has been deleted.")
 
@@ -84,7 +84,7 @@ def main():
                             for credential in Credentials.display_credentials():
                                 print(f"\nApp: {credential.app}\nUsername: {credential.username}\nPassword: {credential.password}\n")
                         else:
-                            print("You haven't created any credentials yet.")
+                            print("\nYou haven't created any credentials yet.")
 
                     elif code == "dsc":
                         app_credential = input("\nEnter app name of the credential you wish to be displayed: ")
@@ -94,19 +94,19 @@ def main():
                         if credential_information:
                             print(f"\nApp: {credential_information.app}\nUsername: {credential_information.username}\nPassword: {credential_information.password}")
                         else:
-                            print("That credential cannot be found. Please try again")
+                            print("\nThat credential cannot be found. Please try again")
                     
                     elif code == "ex":
                         break
                         
                     else:
-                        print("Invalid input. Please check the code and try again.")
+                        print("\nInvalid input. Please check the code and try again.")
 
         elif short_code == "ex":
             break
 
         else:
-            print("Invalid input. Please check your entry and try again.")
+            print("\nInvalid input. Please check your entry and try again.")
 
 if __name__ == '__main__':
     main()
