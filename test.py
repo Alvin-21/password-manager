@@ -110,6 +110,16 @@ class TestUser(unittest.TestCase):
 
         self.assertEqual(Credentials.display_credentials(), Credentials.credential_list)
        
+    def test_display_app_credential(self):
+        """
+        Test to check if we can find a user's credential by the app name and display the information.
+        """
+
+        self.new_credential.save_credentials()
+        test_credential = Credentials("Snapchat", "test43", "wordpass")
+        test_credential.save_credentials()
+        found_credential = Credentials.display_app_credential("Snapchat")
+        self.assertEqual(found_credential.username, test_credential.username)
 
 if __name__ == '__main__':
     unittest.main()
