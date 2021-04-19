@@ -48,7 +48,7 @@ def main():
             if user_verification:
                 print(f"\nHello {login_username}, please use the following codes to select a task.")
                 while True:
-                    print("cc - Create Credentials\ndelc - Delete Credential\ndc -Display Credentials\ndsc - Display Specific Credential\nex - Exit")
+                    print("\ncc - Create Credentials\ndelc - Delete Credential\ndc -Display Credentials\ndsc - Display Specific Credential\nex - Exit")
                     code = input().lower().strip()
 
                     if code == "cc":
@@ -72,7 +72,7 @@ def main():
                         new_credential = create_credentials(app, credential_username, credential_password)
                         new_credential.save_credentials()
 
-                        print(f"Newly created credential details:\nApp Name: {app}\nUsername: {credential_username}\nPassword: {credential_password}")
+                        print(f"\nNewly created credential details:\nApp Name: {app}\nUsername: {credential_username}\nPassword: {credential_password}")
 
                     elif code == "delc":
                         delete_app = input("Enter the app name of the credential you wish to delete: ")
@@ -92,7 +92,7 @@ def main():
                         credential_information = Credentials.display_app_credential(app_credential)
 
                         if credential_information:
-                            print(credential_information)
+                            print(f"\nApp: {credential_information.app}\nUsername: {credential_information.username}\nPassword: {credential_information.password}")
                         else:
                             print("That credential cannot be found. Please try again")
                     
