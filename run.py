@@ -38,7 +38,7 @@ def main():
             
             print(f"Your new account has been created with the following details:\nName: {fname} {lname}\nUsername: {username}\nPassword: {password}")
 
-        if short_code == "li":
+        elif short_code == "li":
             print("Please enter your user details to login.")
             login_username = input("Enter your username: ").strip()
             login_password = input("Enter your password: ")
@@ -96,6 +96,17 @@ def main():
                         else:
                             "That credential cannot be found. Please try again"
                     
+                    elif code == "ex":
+                        break
+                        
+                    else:
+                        "Invalid input. Please check the code and try again."
+
+        elif short_code == "ex":
+            break
+
+        else:
+            print("Invalid input. Please check your entry and try again.")
 
 if __name__ == '__main__':
     main()
