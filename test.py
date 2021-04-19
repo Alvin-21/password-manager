@@ -100,7 +100,7 @@ class TestUser(unittest.TestCase):
         self.new_credential.save_credentials()
         test_credential = Credentials("Snapchat", "test43", "wordpass")
         test_credential.save_credentials()
-        test_credential.delete_credential()
+        Credentials.delete_credential("Snapchat")
         self.assertEqual(len(Credentials.credential_list), 1)
 
     def test_display_credentials(self):

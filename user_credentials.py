@@ -66,13 +66,15 @@ class Credentials:
         """
 
         Credentials.credential_list.append(self)
-
-    def delete_credential(self):
+    @classmethod
+    def delete_credential(cls, app):
         """
         Deletes a saved credential account from the credential_list.
         """
 
-        Credentials.credential_list.remove(self)
+        for credential in cls.credential_list:
+            if credential.app == app:
+                cls.credential_list.remove(credential)
 
     @classmethod
     def password(cls, len=8, chars=string.ascii_letters+string.digits):

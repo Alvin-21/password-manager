@@ -74,7 +74,7 @@ def main():
 
                         print(f"Newly created credential details:\nApp Name: {app}\nUsername: {credential_username}\nPassword: {credential_password}")
 
-          
+                    
 
 
 if __name__ == '__main__':
