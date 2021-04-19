@@ -49,6 +49,33 @@ def main():
                 print(f"Hello {login_username}, please use the following codes to select a task.")
                 while True:
                     print("cc - Create Credentials\ndelc - Delete Credential\ndc -Display Credentials\ndsc - Display Specific Credential")
+                    code = input().lower().strip()
+
+                    if code == "cc":
+                        app = input("Enter the name of the app: ")
+                        credential_username = input("Enter your username: ")
+                        while True:
+                            print("Use the following options to select which password you prefer\ncp - Custom Password\nap - Auto-Generated Password\nex - Exit")
+                            option = input().lower().strip()
+
+                            if option == "cp":
+                                credential_password = input("Enter your password: ")
+                                break
+                            elif option == "ap":
+                                credential_password = Credentials.password()
+                                break
+                            elif option == "ex":
+                                break
+                            else:
+                                print("Invalid input. Check options and try again.")
+                    
+                        new_credential = create_credentials(app, credential_username, credential_password)
+                        new_credential.save_credentials()
+
+                        print(f"Newly created credential details:\nApp Name: {app}\nUsername: {credential_username}\nPassword: {credential_password}")
+
+          
+
 
 if __name__ == '__main__':
     main()
