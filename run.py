@@ -74,10 +74,19 @@ def main():
 
                         print(f"Newly created credential details:\nApp Name: {app}\nUsername: {credential_username}\nPassword: {credential_password}")
 
-                    if code == "delc":
+                    elif code == "delc":
                         delete_app = input("Enter the app name of the credential you wish to delete: ")
                         Credentials.delete_credential(delete_app)
                         print(f"{delete_app} Credentials has been deleted.")
+
+                    elif code == "dc":
+                        if Credentials.display_credentials():
+                            for credential in Credentials.display_credentials():
+                                print(f"App: {credential.app}\nUsername: {credential.username}\nPassword: {credential.password}\n")
+                        else:
+                            print("You haven't created any credentials yet.")
+
+                    
 
 
 if __name__ == '__main__':
