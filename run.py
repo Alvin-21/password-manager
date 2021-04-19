@@ -36,7 +36,7 @@ def main():
             new_user = create_user(fname, lname, username, password)
             new_user.save_user()
             
-            print(f"Your new account has been created with the following details:\nName: {fname} {lname}\nUsername: {username}\nPassword: {password}")
+            print(f"\nYour new account has been created with the following details:\nName: {fname} {lname}\nUsername: {username}\nPassword: {password}\n")
 
         elif short_code == "li":
             print("Please enter your user details to login.")
