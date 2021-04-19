@@ -48,7 +48,7 @@ def main():
             if user_verification:
                 print(f"Hello {login_username}, please use the following codes to select a task.")
                 while True:
-                    print("cc - Create Credentials\ndelc - Delete Credential\ndc -Display Credentials\ndsc - Display Specific Credential")
+                    print("cc - Create Credentials\ndelc - Delete Credential\ndc -Display Credentials\ndsc - Display Specific Credential\nex - Exit")
                     code = input().lower().strip()
 
                     if code == "cc":
@@ -86,8 +86,16 @@ def main():
                         else:
                             print("You haven't created any credentials yet.")
 
-                    
+                    elif code == "dsc":
+                        app_credential = input("Enter app name of the credential you wish to be displayed: ")
 
+                        credential_information = Credentials.display_app_credential(app_credential)
+
+                        if credential_information:
+                            print(credential_information)
+                        else:
+                            "That credential cannot be found. Please try again"
+                    
 
 if __name__ == '__main__':
     main()
