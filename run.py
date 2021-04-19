@@ -39,27 +39,27 @@ def main():
             print(f"\nYour new account has been created with the following details:\nName: {fname} {lname}\nUsername: {username}\nPassword: {password}\n")
 
         elif short_code == "li":
-            print("Please enter your user details to login.")
+            print("\nPlease enter your user details to login.")
             login_username = input("Enter your username: ").strip()
             login_password = input("Enter your password: ")
 
             user_verification = User.verify_user(login_username, login_password)
 
             if user_verification:
-                print(f"Hello {login_username}, please use the following codes to select a task.")
+                print(f"\nHello {login_username}, please use the following codes to select a task.")
                 while True:
                     print("cc - Create Credentials\ndelc - Delete Credential\ndc -Display Credentials\ndsc - Display Specific Credential\nex - Exit")
                     code = input().lower().strip()
 
                     if code == "cc":
-                        app = input("Enter the name of the app: ")
+                        app = input("\nEnter the name of the app: ")
                         credential_username = input("Enter your username: ")
                         while True:
-                            print("Use the following options to select which password you prefer\ncp - Custom Password\nap - Auto-Generated Password\nex - Exit")
+                            print("\nUse the following options to select which password you prefer\ncp - Custom Password\nap - Auto-Generated Password\nex - Exit")
                             option = input().lower().strip()
 
                             if option == "cp":
-                                credential_password = input("Enter your password: ")
+                                credential_password = input("\nEnter your password: ")
                                 break
                             elif option == "ap":
                                 credential_password = Credentials.password()
@@ -82,25 +82,25 @@ def main():
                     elif code == "dc":
                         if Credentials.display_credentials():
                             for credential in Credentials.display_credentials():
-                                print(f"App: {credential.app}\nUsername: {credential.username}\nPassword: {credential.password}\n")
+                                print(f"\nApp: {credential.app}\nUsername: {credential.username}\nPassword: {credential.password}\n")
                         else:
                             print("You haven't created any credentials yet.")
 
                     elif code == "dsc":
-                        app_credential = input("Enter app name of the credential you wish to be displayed: ")
+                        app_credential = input("\nEnter app name of the credential you wish to be displayed: ")
 
                         credential_information = Credentials.display_app_credential(app_credential)
 
                         if credential_information:
                             print(credential_information)
                         else:
-                            "That credential cannot be found. Please try again"
+                            print("That credential cannot be found. Please try again")
                     
                     elif code == "ex":
                         break
                         
                     else:
-                        "Invalid input. Please check the code and try again."
+                        print("Invalid input. Please check the code and try again.")
 
         elif short_code == "ex":
             break
