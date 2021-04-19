@@ -26,6 +26,11 @@ def main():
             fname = input("Enter your first name: ").strip()
             lname = input("Enter your last name: ").strip()
             username = input("Enter your preferred username: ").strip()
+
+            if User.user_exist(username):
+                print("That username has already been taken. Please enter a different username.")
+                username = input("Enter your preferred username: ").strip()
+                
             password = input("Enter your password")
 
             new_user = create_user(fname, lname, username, password)
@@ -33,5 +38,6 @@ def main():
             
             print(f"Your new account has been created with the following details:\nName: {fname} {lname}\nUsername: {username}\nPassword: {password}")
 
+        
 if __name__ == '__main__':
     main()
