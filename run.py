@@ -31,7 +31,7 @@ def main():
                 print("That username has already been taken. Please enter a different username.")
                 username = input("Enter your preferred username: ").strip()
                 
-            password = input("Enter your password")
+            password = input("Enter your password: ")
 
             new_user = create_user(fname, lname, username, password)
             new_user.save_user()
