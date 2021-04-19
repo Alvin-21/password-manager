@@ -38,6 +38,17 @@ def main():
             
             print(f"Your new account has been created with the following details:\nName: {fname} {lname}\nUsername: {username}\nPassword: {password}")
 
-        
+        if short_code == "li":
+            print("Please enter your user details to login.")
+            login_username = input("Enter your username: ").strip()
+            login_password = input("Enter your password: ")
+
+            user_verification = User.verify_user(login_username, login_password)
+
+            if user_verification:
+                print(f"Hello {login_username}, please use the following codes to select a task.")
+                while True:
+                    print("cc - Create Credentials\ndelc - Delete Credential\ndc -Display Credentials\ndsc - Display Specific Credential")
+
 if __name__ == '__main__':
     main()
